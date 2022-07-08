@@ -6,7 +6,7 @@
 #### run with interactive bash
 # bash -i create_pytorch_env
 #### How to remove: ####
-# conda env remove -p pytorch_env
+# conda env remove --name pytorch_env --all
 ###################################################################
 # exit when any command fails
 set -e
