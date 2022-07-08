@@ -3,8 +3,10 @@
 ###################################################################
 #Script Name : create_pytorch_env.sh
 #Description : Create a conda env for pytorch
+#### run with interactive bash
+# bash -i create_pytorch_env
 #### How to remove: ####
-# conda env remove -p /tigress/cw55/envs/pytorch
+# conda env remove -p pytorch_env
 ###################################################################
 # exit when any command fails
 set -e
@@ -14,8 +16,8 @@ trap 'last_command=$current_command; current_command=$BASH_COMMAND' DEBUG
 trap 'echo "\"${last_command}\" command filed with exit code $?."' EXIT
 
 # command starts here
-conda create -y --prefix /tigress/cw55/envs/pytorch python=3.10 numpy=1.21
-conda activate /tigress/cw55/envs/pytorch
+conda create -y --prefix pytorch_env python=3.10 numpy=1.21
+conda activate pytorch_env
 conda install -y pytorch torchvision torchaudio cudatoolkit=11.3 -c pytorch
 conda install -y -c conda-forge matplotlib=3 cartopy scipy scikit-learn numba ipykernel
 python -m ipykernel install --user --name pytorch
